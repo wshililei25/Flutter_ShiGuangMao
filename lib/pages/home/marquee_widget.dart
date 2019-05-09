@@ -17,7 +17,6 @@ class MarqueWidget extends StatelessWidget {
         if (list != null) {
           return Container(
             color: Colors.white,
-//            margin: EdgeInsets.only(top: 8, bottom: 8),
             child: Padding(
                 padding: EdgeInsets.all(6),
                 child: Stack(

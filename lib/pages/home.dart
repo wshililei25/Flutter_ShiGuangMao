@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-
+import 'home/feature_title_widget.dart';
+import 'package:provide/provide.dart';
 import '../pages/home/banner_widget.dart';
+import '../pages/home/feature_spot_widget.dart';
 import '../pages/home/marquee_widget.dart';
 import '../pages/home/recommend_widget.dart';
 import '../pages/home/type_widget.dart';
-import '../widget/divider.dart';
 import '../utils/color_utils.dart';
 import '../utils/string_utils.dart';
+import '../widget/divider.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -38,6 +40,9 @@ class HomePage extends StatelessWidget {
           SliverToBoxAdapter(child: MarqueWidget()),
           SliverToBoxAdapter(child: DividerWidget(8)),
           RecommendWidget(),
+          SliverToBoxAdapter(child: DividerWidget(8)),
+          SliverToBoxAdapter(child: FeatureTitleWidget()),
+          FeatureSpotWidget(),
         ],
       ),
     );

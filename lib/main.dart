@@ -6,17 +6,20 @@ import 'package:provide/provide.dart';
 import './provide/current_index.dart';
 import './provide/home_banner.dart';
 import './provide/information_provide.dart';
+import './provide/feature_spot_provide.dart';
 import './utils/color_utils.dart';
 
 void main() {
   var currentIndexProvide = CurrentIndexProvide();
   var homeBannerProvide = HomeBannerProvide();
-  var IniformationProvide = InformationProvide();
+  var iniformationProvide = InformationProvide();
+  var featureSpotProvide = FeatureSpotProvide();
   var providers = Providers();
   providers
     ..provide(Provider.value(currentIndexProvide))
     ..provide(Provider.value(homeBannerProvide))
-    ..provide(Provider.value(IniformationProvide));
+    ..provide(Provider.value(iniformationProvide))
+    ..provide(Provider.value(featureSpotProvide));
   runApp(ProviderNode(child: MyApp(), providers: providers));
 }
 

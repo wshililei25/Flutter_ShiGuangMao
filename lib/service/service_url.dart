@@ -4,4 +4,5 @@ class ServiceUrl {
 
   static const String homeBanner = baseUrl + 'api/Banner/List'; //首页banner
   static const String information = baseUrl + 'api/Information/Page'; //资讯
+  static const String featureSpot = baseUrl + 'api/Attractions/Page'; //景点
 }

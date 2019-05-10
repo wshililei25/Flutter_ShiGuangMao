@@ -6,7 +6,7 @@ class StartPage extends StatefulWidget {
 }
 
 class _StartPageState extends State<StartPage> {
-  var _seconds = 5;
+  var _seconds = 3;
 
   @override
   Widget build(BuildContext context) {

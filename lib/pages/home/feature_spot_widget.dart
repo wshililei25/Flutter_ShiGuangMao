@@ -32,41 +32,43 @@ class FeatureSpotWidget extends StatelessWidget {
   }
 
   Widget _item(item) {
-    return Column(
-      children: <Widget>[
-        Image.network(ServiceUrl.baseImageUrl + item.imgurl),
-        Container(
-            padding: EdgeInsets.only(top: 10),
-            alignment: Alignment.centerLeft,
-            child: Text(
-              item.title,
-              style: TextStyle(fontSize: 16),
-            )),
-        Row(
+    return Padding(
+        padding: EdgeInsets.only(bottom: 10),
+        child: Column(
           children: <Widget>[
+            Image.network(ServiceUrl.baseImageUrl + item.imgurl),
             Container(
-              margin: EdgeInsets.only(top: 5),
-              padding: EdgeInsets.fromLTRB(5, 3, 5, 3),
-              decoration: BoxDecoration(
-                  border: Border.all(color: ColorUtils.red, width: 0.5),
-                  borderRadius: BorderRadius.all(Radius.circular(4))),
-              child: Text(StringUtils.hot_feature,
-                  style: TextStyle(color: ColorUtils.red, fontSize: 11)),
-            ),
-            Padding(
-                padding: EdgeInsets.only(left: 10, top: 3),
+                padding: EdgeInsets.only(top: 10),
+                alignment: Alignment.centerLeft,
                 child: Text(
-                  '${StringUtils.rmb} ${item.amount}',
-                  style: TextStyle(fontSize: 16, color: ColorUtils.red),
-                ))
+                  item.title,
+                  style: TextStyle(fontSize: 16),
+                )),
+            Row(
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.only(top: 5),
+                  padding: EdgeInsets.fromLTRB(5, 3, 5, 3),
+                  decoration: BoxDecoration(
+                      border: Border.all(color: ColorUtils.red, width: 0.5),
+                      borderRadius: BorderRadius.all(Radius.circular(4))),
+                  child: Text(StringUtils.hot_feature,
+                      style: TextStyle(color: ColorUtils.red, fontSize: 11)),
+                ),
+                Padding(
+                    padding: EdgeInsets.only(left: 10, top: 3),
+                    child: Text(
+                      '${StringUtils.rmb} ${item.amount}',
+                      style: TextStyle(fontSize: 16, color: ColorUtils.red),
+                    ))
+              ],
+            )
           ],
-        )
-      ],
-    );
+        ));
   }
 
   Future _getFeatureSpot(BuildContext context) async {
-    await Provide.value<FeatureSpotProvide>(context).getFeatureSpot(true);
+    await Provide.value<FeatureSpotProvide>(context).getFeatureSpot(false);
     return '加载完成';
   }
 }

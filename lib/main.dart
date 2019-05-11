@@ -1,13 +1,16 @@
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_shiguangmao/pages/primary.dart';
 import 'package:flutter_shiguangmao/pages/start.dart';
 import 'package:provide/provide.dart';
 
 import './provide/current_index.dart';
+import './provide/feature_spot_provide.dart';
 import './provide/home_banner.dart';
 import './provide/information_provide.dart';
-import './provide/feature_spot_provide.dart';
 import './utils/color_utils.dart';
+import 'router/application.dart';
+import 'router/routers.dart';
 
 void main() {
   var currentIndexProvide = CurrentIndexProvide();
@@ -27,6 +30,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    _initRouter();
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
@@ -39,5 +43,14 @@ class MyApp extends StatelessWidget {
         '/PrimaryPage': (BuildContext context) => PrimaryPage(),
       },
     );
+  }
+
+  /**
+   * 路由初始化
+   */
+  void _initRouter() {
+    var router = Router();
+    Routers.configRoute(router);
+    Application.router = router;
   }
 }

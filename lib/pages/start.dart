@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 class StartPage extends StatefulWidget {
   @override
   _StartPageState createState() => _StartPageState();

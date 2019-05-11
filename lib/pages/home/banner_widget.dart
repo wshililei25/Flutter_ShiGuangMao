@@ -33,7 +33,7 @@ class BannerWidget extends StatelessWidget {
           ),
         );
       } else {
-        return Center(child: Text('加载中'));
+        return Center(child: Text(''));
       }
     });
   }

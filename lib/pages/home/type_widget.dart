@@ -8,8 +8,8 @@ class TypeWidget extends StatelessWidget {
         padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
         sliver: SliverGrid.count(
           crossAxisCount: 4,
-          mainAxisSpacing: 25, //纵轴
-          crossAxisSpacing: 25, //横轴
+          mainAxisSpacing: 20, //纵轴
+          crossAxisSpacing: 20, //横轴
           children: <Widget>[
             _item('images/cate1.png', '婚纱摄影'),
             _item('images/cate2.png', '写真摄影'),

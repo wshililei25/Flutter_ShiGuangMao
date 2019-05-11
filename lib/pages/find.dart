@@ -45,7 +45,7 @@ class FindPage extends StatelessWidget {
         child: ListTile(
           leading: Image(image: AssetImage(image), width: 45, height: 45),
           title: Text(name),
-          trailing: Icon(Icons.chevron_right, color: ColorUtils.black),
+          trailing: Icon(Icons.chevron_right, color: ColorUtils.black_light),
         ));
   }
 }

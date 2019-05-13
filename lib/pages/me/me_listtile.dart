@@ -7,6 +7,9 @@ import 'package:flutter_shiguangmao/widget/divider.dart';
 
 class MeListTileWidget extends StatelessWidget {
   BuildContext context;
+  String userId;
+
+  MeListTileWidget(this.userId);
 
   @override
   Widget build(BuildContext context) {
@@ -42,11 +45,18 @@ class MeListTileWidget extends StatelessWidget {
 
   Widget _item(String image, String name) {
     return Container(
-      padding: EdgeInsets.only(top: 3, bottom: 3),
       color: Colors.white,
       child: ListTile(
           onTap: () {
-            Application.router.navigateTo(context, Routers.login);
+            if (userId.isEmpty) {
+              Application.router.navigateTo(context, Routers.login);
+            } else {
+              switch (name) {
+                case '系统设置':
+                  Application.router.navigateTo(context, Routers.setting);
+                  break;
+              }
+            }
           },
           leading: Image.asset(image, width: 25, height: 25),
           title: Text(name),

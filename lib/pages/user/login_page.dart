@@ -2,10 +2,13 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_shiguangmao/entity/userinfo.dart';
+import 'package:flutter_shiguangmao/entity/userinfo_sql.dart';
 import 'package:flutter_shiguangmao/utils/color_utils.dart';
+import 'package:flutter_shiguangmao/utils/data_help.dart';
 import 'package:flutter_shiguangmao/utils/string_utils.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_shiguangmao/utils/toast_util.dart';
 
 import '../../service/service_method.dart';
 import '../../service/service_url.dart';
@@ -16,6 +19,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  var db = DataHelp();
   TextEditingController mobileController = TextEditingController();
   TextEditingController pwdController = TextEditingController();
 
@@ -24,15 +28,15 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Container(
         width: 750,
-        height: 1334,
+        height: ScreenUtil().setHeight(1334),
         decoration: BoxDecoration(
             image: DecorationImage(
                 image: AssetImage('images/bg.png'), fit: BoxFit.cover)),
         child: Column(
           children: <Widget>[
             AppBar(
-              elevation: 0,
               //阴影高度
+              elevation: 0,
               backgroundColor: Colors.transparent,
               centerTitle: true,
               leading: InkWell(
@@ -126,12 +130,19 @@ class _LoginPageState extends State<LoginPage> {
       var result = json.decode(val.toString());
       UserInfo userInfo = UserInfo.fromJson(result);
       if (userInfo.code == '00') {
+        db.deleteUser();
+        db.saveUser(UserSql(
+            userInfo.data.id,
+            userInfo.data.nickname,
+            userInfo.data.imgurl,
+            userInfo.data.amount,
+            userInfo.data.score,
+            userInfo.data.requestCode));
+        Future<int> count = db.getCount();
+        count.then((cou) => print('count==$cou'));
         Navigator.pop(context);
       } else {
-        Fluttertoast.showToast(
-            msg: userInfo.msg,
-            gravity: ToastGravity.BOTTOM,
-            backgroundColor: Colors.black26);
+        toast(userInfo.msg);
       }
     });
   }

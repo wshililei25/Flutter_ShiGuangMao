@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_shiguangmao/utils/data_help.dart';
+import 'package:flutter_shiguangmao/utils/toast_util.dart';
 import 'package:provide/provide.dart';
 
 import '../provide/current_index.dart';
@@ -27,7 +29,18 @@ class PrimaryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
-    return Provide<CurrentIndexProvide>(builder: (context, child, val) {
+    DateTime _lastPressedAt; //上次点击时间
+    return WillPopScope(onWillPop: () async {
+      if (_lastPressedAt == null ||
+          DateTime.now().difference(_lastPressedAt) > Duration(seconds: 1)) {
+        //两次点击间隔超过1秒则重新计时
+        _lastPressedAt = DateTime.now();
+        toast('再按一次退出应用');
+        return false;
+      }
+      DataHelp().close();
+      return true;
+    }, child: Provide<CurrentIndexProvide>(builder: (context, child, val) {
       int currentIndex =
           Provide.value<CurrentIndexProvide>(context).currentIndex;
       return Scaffold(
@@ -40,6 +53,6 @@ class PrimaryPage extends StatelessWidget {
             }),
         body: IndexedStack(index: currentIndex, children: tabPages),
       );
-    });
+    }));
   }
 }

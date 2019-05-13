@@ -30,6 +30,7 @@ dependencies:
   marquee_flutter: ^0.1.4 # 跑马灯
   fluro: ^1.4.0 # 路由
   fluttertoast: ^3.0.4
+  sqflite: ^1.1.5
 #  amap_base: ^0.3.5 # 高德
 
 

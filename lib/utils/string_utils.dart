@@ -26,5 +26,6 @@ class StringUtils {
   static String system_set =  '系统设置';
   static String login_account =  '登录账户';
   static String forget_pwd =  '忘记密码';
+  static String out_login =  '退出登陆';
 
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'home/feature_title_widget.dart';
-import 'package:provide/provide.dart';
 import '../pages/home/banner_widget.dart';
 import '../pages/home/feature_spot_widget.dart';
 import '../pages/home/marquee_widget.dart';

@@ -2,6 +2,7 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_shiguangmao/pages/primary.dart';
 import 'package:flutter_shiguangmao/pages/start.dart';
+import 'package:flutter_shiguangmao/provide/userinfo_provide.dart';
 import 'package:provide/provide.dart';
 
 import './provide/current_index.dart';
@@ -17,12 +18,14 @@ void main() {
   var homeBannerProvide = HomeBannerProvide();
   var iniformationProvide = InformationProvide();
   var featureSpotProvide = FeatureSpotProvide();
+  var userInfoProvide = UserInfoProvide();
   var providers = Providers();
   providers
     ..provide(Provider.value(currentIndexProvide))
     ..provide(Provider.value(homeBannerProvide))
     ..provide(Provider.value(iniformationProvide))
-    ..provide(Provider.value(featureSpotProvide));
+    ..provide(Provider.value(featureSpotProvide))
+    ..provide(Provider.value(userInfoProvide));
   runApp(ProviderNode(child: MyApp(), providers: providers));
 }
 

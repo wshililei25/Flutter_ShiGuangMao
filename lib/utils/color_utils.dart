@@ -5,4 +5,5 @@ class ColorUtils{
   static Color red = Color(0xFFF83244);
   static Color black = Color(0xFF333333);
   static Color black_light = Color(0xFF666666);
+  static Color gray = Color(0xFF8c8c8c);
 }

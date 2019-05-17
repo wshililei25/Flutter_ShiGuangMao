@@ -16,7 +16,7 @@ Future requestGet(path, {formData}) async {
     }
 
     if (response.statusCode == 200) {
-      print('response.data =====> ${path} ：${response.data}');
+      print('response.data =====> ${path} ：formData= ${formData.toString()} result==>  ${response.data}');
       return response;
     } else {
       throw Exception('接口异常');
@@ -39,7 +39,7 @@ Future requestPost(path, {formData}) async {
     }
 
     if (response.statusCode == 200) {
-      print('response.data =====> ${path} ：${response.data}');
+      print('response.data =====> ${path} ：formData= ${formData.toString()} result==>  ${response.data}');
       return response;
     } else {
       throw Exception('接口异常');

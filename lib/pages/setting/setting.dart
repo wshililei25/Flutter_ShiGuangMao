@@ -4,11 +4,14 @@ import 'package:flutter_shiguangmao/utils/data_help.dart';
 import 'package:flutter_shiguangmao/utils/string_utils.dart';
 import 'package:flutter_shiguangmao/widget/base_appbar.dart';
 
+/**
+ * 系统设置
+ */
 class SettingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BaseAppbar(context, StringUtils.system_set, ''),
+      appBar: BaseAppbar(context, StringUtils.system_set),
       body: Column(
         children: <Widget>[
           Container(

@@ -27,5 +27,6 @@ class StringUtils {
   static String login_account =  '登录账户';
   static String forget_pwd =  '忘记密码';
   static String out_login =  '退出登陆';
+  static String select_meal =  '选择套餐';
 
 }

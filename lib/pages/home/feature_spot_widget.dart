@@ -24,7 +24,7 @@ class FeatureSpotWidget extends StatelessWidget {
                 }, childCount: list.length),
               ));
         } else {
-          //使用SliverList当数据还没有返回是必须返回SliverFillRemaining，否则报错
+          //使用CustomScrollView 嵌套 SliverList当数据还没有返回是必须返回SliverFillRemaining，否则报错
           return SliverFillRemaining(child: Text(''));
         }
       },

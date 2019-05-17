@@ -61,6 +61,9 @@ class DataHelp {
     return result.toList();
   }
 
+  /**
+   * 清空数据
+   */
   Future deleteUser() async {
     var dbCliect = await db;
     return await dbCliect.delete(tableNote);
@@ -69,7 +72,7 @@ class DataHelp {
   /**
    * 关闭数据库
    */
-  Future close() async{
+  Future close() async {
     var dbClient = await db;
     return dbClient.close();
   }

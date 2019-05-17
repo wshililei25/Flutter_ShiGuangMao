@@ -5,6 +5,8 @@ import 'package:flutter_shiguangmao/router/router_handler.dart';
 class Routers {
   static String login = '/login';
   static String setting = '/setting';
+  static String webview = '/webview';
+  static String mealList = '/mealList';
 
   static void configRoute(Router router) {
     router.notFoundHandler = Handler(
@@ -13,5 +15,7 @@ class Routers {
     });
     router.define(login, handler: loginHandler);
     router.define(setting, handler: settingHandler);
+    router.define(webview, handler: webviewHandler);
+    router.define(mealList, handler: mealListHandler);
   }
 }

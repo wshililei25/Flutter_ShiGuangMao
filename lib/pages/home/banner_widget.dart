@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_shiguangmao/router/application.dart';
+import 'package:flutter_shiguangmao/router/routers.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:provide/provide.dart';
 
@@ -18,17 +20,20 @@ class BannerWidget extends StatelessWidget {
       if (bannerList != null) {
         return Container(
           width: ScreenUtil().setWidth(750),
-          height: ScreenUtil().setHeight(350),
+          height: ScreenUtil().setHeight(380),
           child: Swiper(
             itemCount: bannerList.length,
             pagination: SwiperPagination(alignment: Alignment.bottomRight),
             autoplay: true,
             itemBuilder: (BuildContext context, int index) {
               return InkWell(
+                  onTap: () {
+                    Application.router.navigateTo(context, '${Routers.webview}?url=123');
+                  },
                   child: Image.network(
-                ServiceUrl.baseImageUrl + '${bannerList[index].imgurl}',
-                fit: BoxFit.fill,
-              ));
+                    ServiceUrl.baseImageUrl + '${bannerList[index].imgurl}',
+                    fit: BoxFit.fill,
+                  ));
             },
           ),
         );

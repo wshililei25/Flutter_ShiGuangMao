@@ -8,6 +8,7 @@ class FindPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: Colors.white,
         centerTitle: true,
         leading: Icon(Icons.notifications_none, color: ColorUtils.red),
@@ -24,6 +25,7 @@ class FindPage extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
+          DividerWidget(10),
           _item('images/othericon1.png', StringUtils.interaction),
           DividerWidget(1),
           _item('images/othericon2.png', StringUtils.wedding_invitation),

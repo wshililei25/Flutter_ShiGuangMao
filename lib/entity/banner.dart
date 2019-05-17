@@ -29,14 +29,16 @@ class BannerEntity {
 
 class Data {
   int id;
+  int storeId;
   String imgurl;
   String url;
-  int type;
+  String type;
 
-  Data({this.id, this.imgurl, this.url, this.type});
+  Data({this.id, this.storeId, this.imgurl, this.url, this.type});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];
+    storeId = json['storeId'];
     imgurl = json['imgurl'];
     url = json['url'];
     type = json['type'];
@@ -45,6 +47,7 @@ class Data {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
+    data['storeId'] = this.storeId;
     data['imgurl'] = this.imgurl;
     data['url'] = this.url;
     data['type'] = this.type;
